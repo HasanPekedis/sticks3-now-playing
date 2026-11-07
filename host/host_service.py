@@ -16,9 +16,12 @@ log = logging.info
 PLAYING = 4
 
 
+# The device font (efont JA) has Japanese and most Latin letters but lacks a few Turkish ones.
+MISSING_GLYPHS = str.maketrans("ıİğĞ", "iIgG")
+
+
 def clean_text(s):
-    # Cihazdaki efont Japonca/Latin/Turkce karakterleri cizebiliyor; sadece kontrol karakterlerini at.
-    s = unicodedata.normalize("NFC", s or "")
+    s = unicodedata.normalize("NFC", s or "").translate(MISSING_GLYPHS)
     return "".join(c for c in s if c.isprintable()).strip()
 
 
