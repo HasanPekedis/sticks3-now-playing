@@ -1,0 +1,6 @@
+pyserial>=3.5
+Pillow>=10
+winrt-runtime>=3
+winrt-Windows.Foundation>=3
+winrt-Windows.Media.Control>=3
+winrt-Windows.Storage.Streams>=3
